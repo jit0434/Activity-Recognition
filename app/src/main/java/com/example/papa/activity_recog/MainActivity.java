@@ -41,7 +41,7 @@ package com.example.papa.activity_recog;
 
 //        SensorFusionActivity
 public class MainActivity extends Activity
-        implements SensorEventListener, RadioGroup.OnCheckedChangeListener {
+        implements SensorEventListener {
 
     private SensorManager mSensorManager = null;
 
@@ -80,11 +80,13 @@ public class MainActivity extends Activity
 
     // The following members are only for displaying the sensor output.
     public Handler mHandler;
-    private RadioGroup mRadioGroup;
-    private TextView mAzimuthView;
-    private TextView mPitchView;
-    private TextView mRollView;
     private int radioSelection;
+
+    private TextView Ax,Ay,Az;
+    private TextView Mx,My,Mz;
+    private TextView Gx,Gy,Gz;
+    private TextView Sx,Sy,Sz;
+
     DecimalFormat d = new DecimalFormat("#.##");
 
 
@@ -117,11 +119,24 @@ public class MainActivity extends Activity
         d.setRoundingMode(RoundingMode.HALF_UP);
         d.setMaximumFractionDigits(3);
         d.setMinimumFractionDigits(3);
-        mRadioGroup = (RadioGroup)findViewById(R.id.radioGroup1);
-        mAzimuthView = (TextView)findViewById(R.id.textView4);
-        mPitchView = (TextView)findViewById(R.id.textView5);
-        mRollView = (TextView)findViewById(R.id.textView6);
-        mRadioGroup.setOnCheckedChangeListener(this);
+
+
+        Ax = (TextView)findViewById(R.id.ax);
+        Ay = (TextView)findViewById(R.id.ay);
+        Az = (TextView)findViewById(R.id.az);
+
+        Mx = (TextView)findViewById(R.id.mx);
+        My = (TextView)findViewById(R.id.my);
+        Mz = (TextView)findViewById(R.id.mz);
+
+        Gx = (TextView)findViewById(R.id.gx);
+        Gy = (TextView)findViewById(R.id.gy);
+        Gz = (TextView)findViewById(R.id.gz);
+
+        Sx = (TextView)findViewById(R.id.sx);
+        Sy = (TextView)findViewById(R.id.sy);
+        Sz = (TextView)findViewById(R.id.sz);
+
     }
 
     @Override
@@ -171,16 +186,37 @@ public class MainActivity extends Activity
                 // copy new accelerometer data into accel array and calculate orientation
                 System.arraycopy(event.values, 0, accel, 0, 3);
                 calculateAccMagOrientation();
+                float ax,ay,az;
+                ax = event.values[0];
+                ay = event.values[1];
+                az = event.values[2];
+                Ax.setText("X: " + ax);
+                Ay.setText("Y: " + ay);
+                Az.setText("Z: " + az);
                 break;
 
             case Sensor.TYPE_GYROSCOPE:
                 // process gyro data
                 gyroFunction(event);
+                float gx,gy,gz;
+                gx = event.values[0];
+                gy = event.values[1];
+                gz = event.values[2];
+                Gx.setText("X: " + gx);
+                Gy.setText("Y: " + gy);
+                Gz.setText("Z: " + gz);
                 break;
 
             case Sensor.TYPE_MAGNETIC_FIELD:
                 // copy new magnetometer data into magnet array
                 System.arraycopy(event.values, 0, magnet, 0, 3);
+                float mx,my,mz;
+                mx = event.values[0];
+                my = event.values[1];
+                mz = event.values[2];
+                Mx.setText("X: " + mx);
+                My.setText("Y: " + my);
+                Mz.setText("Z: " + mz);
                 break;
         }
     }
@@ -382,39 +418,13 @@ public class MainActivity extends Activity
 
     // **************************** GUI FUNCTIONS *********************************
 
-    @Override
-    public void onCheckedChanged(RadioGroup group, int checkedId) {
-        switch(checkedId) {
-            case R.id.radio0:
-                radioSelection = 0;
-                break;
-            case R.id.radio1:
-                radioSelection = 1;
-                break;
-            case R.id.radio2:
-                radioSelection = 2;
-                break;
-        }
-    }
 
     public void updateOreintationDisplay() {
-        switch(radioSelection) {
-            case 0:
-                mAzimuthView.setText(d.format(accMagOrientation[0] * 180/Math.PI) + '°');
-                mPitchView.setText(d.format(accMagOrientation[1] * 180/Math.PI) + '°');
-                mRollView.setText(d.format(accMagOrientation[2] * 180/Math.PI) + '°');
-                break;
-            case 1:
-                mAzimuthView.setText(d.format(gyroOrientation[0] * 180/Math.PI) + '°');
-                mPitchView.setText(d.format(gyroOrientation[1] * 180/Math.PI) + '°');
-                mRollView.setText(d.format(gyroOrientation[2] * 180/Math.PI) + '°');
-                break;
-            case 2:
-                mAzimuthView.setText(d.format(fusedOrientation[0] * 180/Math.PI) + '°');
-                mPitchView.setText(d.format(fusedOrientation[1] * 180/Math.PI) + '°');
-                mRollView.setText(d.format(fusedOrientation[2] * 180/Math.PI) + '°');
-                break;
-        }
+
+                Sx.setText(d.format(fusedOrientation[0] * 180/Math.PI) + '°');
+                Sy.setText(d.format(fusedOrientation[1] * 180/Math.PI) + '°');
+                Sz.setText(d.format(fusedOrientation[2] * 180/Math.PI) + '°');
+
     }
 
     private Runnable updateOreintationDisplayTask = new Runnable() {

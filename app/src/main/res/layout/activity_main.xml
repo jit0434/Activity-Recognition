@@ -5,112 +5,149 @@
     android:orientation="vertical" >
 
     <TableLayout
-        android:id="@+id/tableLayout1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
-        <TableRow
-            android:id="@+id/tableRow1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:layout_weight="1" >
-
-            <TextView
-                android:id="@+id/textView1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Azimuth (z-axis rotation): " />
-
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10px"
-                android:text="0"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
-
-        </TableRow>
-
-        <TableRow
-            android:id="@+id/tableRow2"
+        <RelativeLayout
+            android:id="@+id/tableaccel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right" >
-
+            android:layout_gravity="left"
+            android:layout_weight="1"
+            android:layout_marginTop="20dp">
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/accel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Pitch (x-axis rotation): " />
+                android:text="Accelrometer:" />
 
             <TextView
-                android:id="@+id/textView5"
+                android:id="@+id/ax"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10px"
-                android:text="0"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+                android:layout_below="@+id/accel"
+                android:text="X:" />
 
-        </TableRow>
+            <TextView
+                android:id="@+id/ay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ax"
+                android:text="Y:" />
 
+            <TextView
+                android:id="@+id/az"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ay"
+                android:text="Z:" />
+        </RelativeLayout>
 
-
-        <TableRow
-            android:id="@+id/tableRow3"
+        <RelativeLayout
+            android:id="@+id/tablemagn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:baselineAligned="true" >
-
+            android:layout_gravity="left"
+            android:layout_weight="1"
+            android:layout_marginTop="20dp">
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/magno"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Roll (y-axis ritation): " />
-
+                android:text="Magnetometer:" />
 
             <TextView
-                android:id="@+id/textView6"
+                android:id="@+id/mx"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10px"
-                android:text="0"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+                android:layout_below="@+id/magno"
+                android:text="X:" />
 
-        </TableRow>
+            <TextView
+                android:id="@+id/my"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/mx"
+                android:text="Y:" />
 
-        <TableRow
-            android:id="@+id/tableRow4"
+            <TextView
+                android:id="@+id/mz"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/my"
+                android:text="Z:" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/tablgyro"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="20dp">
+            <TextView
+                android:id="@+id/gyro"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:text="Gyro:" />
 
-        </TableRow>
+            <TextView
+                android:id="@+id/gx"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/gyro"
+                android:text="X:" />
+
+            <TextView
+                android:id="@+id/gy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/gx"
+                android:text="Y:" />
+
+            <TextView
+                android:id="@+id/gz"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/gy"
+                android:text="Z:" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/tablesfused"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_weight="1"
+            android:layout_marginTop="20dp">
+            <TextView
+                android:id="@+id/sfused"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sensor fused:" />
+
+            <TextView
+                android:id="@+id/sx"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/sfused"
+                android:text="X:" />
+
+            <TextView
+                android:id="@+id/sy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/sx"
+                android:text="Y:" />
+
+            <TextView
+                android:id="@+id/sz"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/sy"
+                android:text="Z:" />
+        </RelativeLayout>
     </TableLayout>
 
-    <RadioGroup
-        android:id="@+id/radioGroup1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
-
-        <RadioButton
-            android:id="@+id/radio0"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="true"
-            android:text="Accelerometer/Magnetometer Orientation" />
-
-        <RadioButton
-            android:id="@+id/radio1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Gyroscope Orientation (drift eliminated)" />
-
-        <RadioButton
-            android:id="@+id/radio2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Orientation from Sensor Fusion" />
-    </RadioGroup>
 
 </LinearLayout>
