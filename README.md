@@ -1,5 +1,11 @@
 # Activity Recogination
 
+Android application to get real time values of
+		1. Accelerometer values (x,y,z)
+		1. Gyroscope Values v(x,y,z)
+		3. Magnetometer values (x,y,z)
+		it displays real time orientation using 9 axis sensor fusion algorithm. 
+
 Save-Contact https://github.com/jit0434/Save-Contact
 Activity-Recogination  https://github.com/jit0434/Activity-Recognition
 Snoring-Detection https://github.com/jit0434/Snoring-Detection
@@ -42,3 +48,7 @@ http://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=5759000
 ![screenshot_20170827-223932](https://user-images.githubusercontent.com/26283082/29862920-a369c4ea-8d8b-11e7-8b16-007f1c93f2d8.jpg)
 
 ![screenshot_20170827-223915](https://user-images.githubusercontent.com/26283082/29862922-a37f696c-8d8b-11e7-9ae9-80bf35434ab8.jpg)
+
+## Reference 
+Sensor fusion
+https://www.codeproject.com/Articles/729759/Android-Sensor-Fusion-Tutorial
